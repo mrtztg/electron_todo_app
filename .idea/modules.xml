@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/practice_electronjs.iml" filepath="$PROJECT_DIR$/practice_electronjs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/electron_todo_app.iml" filepath="$PROJECT_DIR$/electron_todo_app.iml" />
     </modules>
   </component>
 </project>
