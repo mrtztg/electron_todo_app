@@ -5,25 +5,20 @@
     <title>Title</title>
 </head>
 <body>
-<h1>TODO App</h1>
-<!--<form action="">-->
-<!--    <div>-->
-<!--        <label>Select a Video</label>-->
-<!--        <input type="file" accept="video/*"/>-->
-<!--        <button type="submit">Get Info</button>-->
-<!--    </div>-->
-<!--</form>-->
+<h1>My TODOs</h1>
+<ul id="todos">
+</ul>
 <script>
-    // const electron = require('electron');;
-
-    // document.querySelector('form').addEventListener('submit', (event) => {
-    //     event.preventDefault();
-        // const fileInput = document.querySelector('input[type=file]')
-        // const {path} = fileInput.files?.[0];
-        // // ipcRenderer.send('videoLength', path)
-        // console.log(fileInput.files?.[0])
-        // window.electron.send('videoLength', path
-    // })
+    const ul = document.getElementById('todos');
+    window.electron.receive('todo:add', (todo) => {
+        console.log("inMain-> " + todo)
+        let newItem = document.createElement('li')
+        newItem.textContent = todo
+        ul.appendChild(newItem);
+    })
+    window.electron.receive('todo:clear', () => {
+        ul.innerHTML = ''
+    })
 </script>
 </body>
 </html>

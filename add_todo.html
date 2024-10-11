@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add</title>
+</head>
+<body>
+<form id="addTodo">
+    <label for="todo_name">Add your todo</label>
+    <input type="text" name="todo_name" id="todo_name">
+    <button type="submit">Submit</button>
+</form>
+</body>
+<script>
+    document.querySelector('form#addTodo').addEventListener('submit', (event) => {
+        event.preventDefault();
+        const {value: todoInput} = document.querySelector('#todo_name');
+        window.electron.send('todo:add', todoInput);
+    })
+</script>
+</html>
